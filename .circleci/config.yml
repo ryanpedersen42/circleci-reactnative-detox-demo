@@ -47,6 +47,7 @@ jobs:
           path: artifacts
 
   detox_android:
+    parallelism: 2
     executor:
       name: android/android-machine
       resource-class: large
