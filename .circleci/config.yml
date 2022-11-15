@@ -100,8 +100,11 @@ workflows:
           requires: [ unit-test ]
       - detox_android:
           requires: [ unit-test ]
-      - beta_android
-      - rn/android_build:
-          checkout: true
+      - beta_android:
+          requires: [ unit-test ]
+      # - rn/android_build:
+      #     checkout: true
+      #     requires: [ unit-test ]
+
 
 # VS Code Extension Version: 1.0.0
