@@ -69,9 +69,11 @@ jobs:
           path: artifacts
 
   beta_android:
-    executor:
-      name: android/android-machine
-      resource-class: large
+    machine:
+      image: android:2021.10.1
+    # executor:
+    #   name: android/android-machine
+    #   resource-class: large
     steps:
       - checkout
       - node/install-yarn
