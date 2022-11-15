@@ -79,7 +79,7 @@ jobs:
           app-dir: android
       - android/restore-gradle-cache
       - run:
-          command: bundle exec fastlane beta
+          command: bundle exec fastlane build_debug_app
           working_directory: android
       - android/save-gradle-cache
 
@@ -102,9 +102,9 @@ workflows:
           requires: [ unit-test ]
       - beta_android:
           requires: [ unit-test ]
-      # - rn/android_build:
-      #     checkout: true
-      #     requires: [ unit-test ]
+      - rn/android_build:
+          checkout: true
+          requires: [ unit-test ]
 
 
 # VS Code Extension Version: 1.0.0
