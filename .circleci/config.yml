@@ -54,7 +54,8 @@ jobs:
     steps:
       - checkout
       - node/install-yarn
-      - rn/yarn_install
+      - rn/yarn_install:
+          cache: false
       - rn/android_emulator_start:
           device_name: Pixel_3a_API_30_x86
       - detox_build_android
@@ -100,3 +101,5 @@ workflows:
       - beta_android
       - rn/android_build:
           checkout: true
+
+# VS Code Extension Version: 1.0.0
