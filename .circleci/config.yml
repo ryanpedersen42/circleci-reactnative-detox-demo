@@ -67,9 +67,9 @@ jobs:
           path: artifacts
 
   beta_android:
-    executor:
-      name: android/android-machine
-      resource-class: large
+    # executor:
+    machine:
+      image: android:2022.09.1
     steps:
       - checkout
       - node/install-yarn
@@ -99,7 +99,7 @@ workflows:
       - detox_ios
       - detox_android
       - beta_android
-      - rn/android_build:
-          checkout: true
+      # - rn/android_build:
+      #     checkout: true
 
 # VS Code Extension Version: 1.0.0
