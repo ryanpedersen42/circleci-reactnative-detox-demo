@@ -52,7 +52,7 @@ jobs:
     #   name: android/android-machine
     #   resource-class: large
     machine:
-      image: android:2022.09.1
+      image: android:2021.10.1
     steps:
       - checkout
       - node/install-yarn
