@@ -90,13 +90,18 @@ workflows:
           name: unit-test
           pkg-manager: yarn
           version: 12.22.5
+          requires: [ eslint ]
       - node/run:
           name: eslint
           yarn-run: lint
           pkg-manager: yarn
           version: 12.22.5
-      - detox_ios
-      - detox_android
+      - detox_ios:
+          requires: [ unit-test ]
+      - detox_android:
+          requires: [ unit-test ]
       - beta_android
       - rn/android_build:
           checkout: true
+
+# VS Code Extension Version: 1.0.0
