@@ -22,27 +22,27 @@ platform :android do
   end
 
 
-  desc "Submit to Firebase"
-  lane :beta do
-    gradle(task: "assembleRelease")
-    firebase_app_distribution(
-      app: "1:217734547318:android:2008dd3a68f90b48a69c57",
-      testers: "tadashi.nemoto0713@gmail.com",
-      apk_path: "app/build/outputs/apk/release/app-release.apk",
-      firebase_cli_token: ENV["FIREBASE_TOKEN"]
-    )
-  end
+  # desc "Submit to Firebase"
+  # lane :beta do
+  #   gradle(task: "assembleRelease")
+  #   firebase_app_distribution(
+  #     app: "1:217734547318:android:2008dd3a68f90b48a69c57",
+  #     testers: "tadashi.nemoto0713@gmail.com",
+  #     apk_path: "app/build/outputs/apk/release/app-release.apk",
+  #     firebase_cli_token: ENV["FIREBASE_TOKEN"]
+  #   )
+  # end
   desc "Runs all the tests"
   lane :test do
     gradle(task: "test")
   end
 
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-    gradle(task: "clean assembleRelease")
-    crashlytics
+  # desc "Submit a new Beta Build to Crashlytics Beta"
+  # lane :beta do
+  #   gradle(task: "clean assembleRelease")
+  #   crashlytics
   
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
-  end
+  #   # sh "your_script.sh"
+  #   # You can also use other beta testing services here
+  # end
 end
