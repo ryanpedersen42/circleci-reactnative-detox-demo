@@ -79,7 +79,7 @@ jobs:
           app-dir: android
       - android/restore-gradle-cache
       - run:
-          command: bundle exec fastlane test
+          command: bundle exec fastlane beta
           working_directory: android
       - android/save-gradle-cache
 
@@ -90,21 +90,13 @@ workflows:
           name: unit-test
           pkg-manager: yarn
           version: 12.22.5
-          requires: [ eslint ]
       - node/run:
           name: eslint
           yarn-run: lint
           pkg-manager: yarn
           version: 12.22.5
-      - detox_ios:
-          requires: [ unit-test ]
-      - detox_android:
-          requires: [ unit-test ]
-      - beta_android:
-          requires: [ unit-test ]
+      - detox_ios
+      - detox_android
+      - beta_android
       - rn/android_build:
           checkout: true
-          requires: [ unit-test ]
-
-
-# VS Code Extension Version: 1.0.0
